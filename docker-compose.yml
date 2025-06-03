@@ -1,7 +1,6 @@
 version: '3'
 services:
     web:
-        build: .
         image: server
         container_name: web
         command: bash -c "gunicorn modelproject.wsgi:application -b 0.0.0.0:8000" # 서버 실행
@@ -24,6 +23,7 @@ services:
             - ./media:/media # media가 있으면
             - ./cert/certbot/conf:/etc/letsencrypt # 이 부분
             - ./cert/certbot/www:/var/www/certbot # 이 부분
+            - ./cert/certbot/conf/options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf
         restart: always # 이 부분
         ports:
             - 80:80
