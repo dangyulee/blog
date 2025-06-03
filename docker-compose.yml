@@ -23,7 +23,8 @@ services:
             - ./media:/media # media가 있으면
             - ./cert/certbot/conf:/etc/letsencrypt # 이 부분
             - ./cert/certbot/www:/var/www/certbot # 이 부분
-            - ./cert/certbot/conf/options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf
+            - ./cert/certbot/conf/options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf # gpt로 이거 추가
+
         restart: always # 이 부분
         ports:
             - 80:80
